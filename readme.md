@@ -1,4 +1,4 @@
-## Plataforma para la gestión del cumplimiento de compromisos.
+## Plataforma para el seguimiento del cumplimiento de compromisos.
 
 
 
