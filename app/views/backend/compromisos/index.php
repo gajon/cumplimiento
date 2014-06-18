@@ -27,6 +27,8 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Avance (%)</th>
+                    <th>Responsable Implementación</th>
+                    <th>Última Actualización</th>
                     <th></th>
                 </tr>
             </thead>
@@ -37,6 +39,8 @@
                         <?= $compromiso->nombre; ?>
                     </td>
                     <td><?=number_format($compromiso->avance*100,2,',','.')?></td>
+                    <td><?=$compromiso->institucionResposableImplementacion->nombre?></td>
+                    <td><?=$compromiso->updated_at->format('d-m-Y')?></td>
                     <td class="text-right">
                         <a href="<?= URL::to('backend/compromisos/editar/'.$compromiso->id); ?>" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i> Editar</a>
                         <a href="<?= URL::to('backend/compromisos/eliminar/'.$compromiso->id); ?>" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-backend"><i class="glyphicon glyphicon-remove"></i> Eliminar</a>
