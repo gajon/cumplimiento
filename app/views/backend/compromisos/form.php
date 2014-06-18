@@ -185,7 +185,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <label>Porcentaje de Avance</label>
-                <input name="avance" type="number" class="form-control" value="<?=$compromiso->avance?>"/>
+                <input type="text" class="form-control" value="<?=number_format($compromiso->avance*100,2,',','.')?> %" readonly />
             </div>
             <div class="col-sm-8">
                 <label>Descripción del Estado de Avance</label>
@@ -219,6 +219,8 @@
                     <thead>
                         <tr>
                             <th>Descripción</th>
+                            <th>Ponderador (%)</th>
+                            <th>Avance (%)</th>
                             <th>Fecha Inicio</th>
                             <th>Fecha Termino</th>
                             <th></th>
@@ -228,6 +230,8 @@
                         <?php $i=0; foreach($compromiso->hitos as $h):?>
                         <tr>
                             <td><input class="form-control" type="text" value="<?=$h->descripcion?>" name="hitos[<?=$i?>][descripcion]" placeholder="Descripción del hito"/></td>
+                            <td><input class="form-control" type="number" min="0" max="100" value="<?=$h->ponderador?>" name="hitos[<?=$i?>][ponderador]" placeholder="Ponderador del hito (Valor entre 0 y 100)"/></td>
+                            <td><input class="form-control" type="number" min="0" max="100" value="<?=$h->avance?>" name="hitos[<?=$i?>][avance]" placeholder="Porcentaje de avance (Valor entre 0 y 100)"/></td>
                             <td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" type="date" class="form-control" value="<?=$h->fecha_inicio->format('d-m-Y')?>" name="hitos[<?=$i?>][fecha_inicio]" placeholder="Fecha de inicio del hito" /></td>
                             <td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" type="date" class="form-control" value="<?=$h->fecha_termino->format('d-m-Y')?>" name="hitos[<?=$i?>][fecha_termino]" placeholder="Fecha de término del hito" /></td>
                             <td>

@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Actor' => $baseDir . '/app/models/Actor.php',
+    'AddPonderadorToHitoTable' => $baseDir . '/app/database/migrations/2014_06_18_150437_add_ponderador_to_hito_table.php',
     'AuthController' => $baseDir . '/app/controllers/backend/AuthController.php',
     'BackendController' => $baseDir . '/app/controllers/backend/BackendController.php',
     'Barryvdh\\LaravelIdeHelper\\GeneratorCommand' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Barryvdh/LaravelIdeHelper/GeneratorCommand.php',

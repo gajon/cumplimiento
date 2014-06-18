@@ -153,6 +153,8 @@ function initFormCompromisosHitos(){
         $(el).find('.form-hitos-agregar').on('click',function(){
             var row='<tr>' +
                 '<td><input class="form-control" type="text" name="hitos['+maxid+'][descripcion]" value="" placeholder="Descripción del hito"/></td>' +
+                '<td><input class="form-control" type="number" min="0" max="100" name="hitos['+maxid+'][ponderador]" value="" placeholder="Ponderador del hito (Valor entre 0 y 100)"/></td>' +
+                '<td><input class="form-control" type="number" min="0" max="100" name="hitos['+maxid+'][avance]" value="" placeholder="Porcentaje de avance del hito (Valor entre 0 y 100)"/></td>' +
                 '<td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" class="form-control" type="text" name="hitos['+maxid+'][fecha_inicio]" value="" placeholder="Fecha de inicio del hito"/></td>' +
                 '<td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" class="form-control" type="text" name="hitos['+maxid+'][fecha_termino]" value="" placeholder="Fecha de término del hito"/></td>' +
                 '<td>' +

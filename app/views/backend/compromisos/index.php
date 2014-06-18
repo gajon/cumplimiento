@@ -23,12 +23,20 @@
         <p class="text-right">Exportar a <a href="<?=str_replace('compromisos','compromisos.pdf',URL::full())?>">PDF</a>, <a href="<?=str_replace('compromisos','compromisos.xls',URL::full())?>">XLS</a></p>
 
         <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Avance (%)</th>
+                    <th></th>
+                </tr>
+            </thead>
             <tbody>
             <?php foreach($compromisos as $compromiso): ?>
                 <tr>
                     <td>
                         <?= $compromiso->nombre; ?>
                     </td>
+                    <td><?=number_format($compromiso->avance*100,2,',','.')?></td>
                     <td class="text-right">
                         <a href="<?= URL::to('backend/compromisos/editar/'.$compromiso->id); ?>" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i> Editar</a>
                         <a href="<?= URL::to('backend/compromisos/eliminar/'.$compromiso->id); ?>" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-backend"><i class="glyphicon glyphicon-remove"></i> Eliminar</a>

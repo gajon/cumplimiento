@@ -8,7 +8,7 @@
 
 class Compromiso extends Eloquent{
 
-    protected $fillable = array('nombre','url','descripcion','objetivo','publico','avance','avance_descripcion','plazo','presupuesto');
+    protected $fillable = array('nombre','url','descripcion','objetivo','publico','avance_descripcion','plazo','presupuesto');
 
     public function fuente(){
         return $this->belongsTo('Fuente');
@@ -44,6 +44,14 @@ class Compromiso extends Eloquent{
 
     public function actores(){
         return $this->hasMany('Actor');
+    }
+
+    public function getAvanceAttribute(){
+        $avance=0;
+        foreach($this->hitos as $h){
+            $avance+=$h->ponderador*$h->avance;
+        }
+        return $avance;
     }
 
 } 

@@ -32,13 +32,13 @@ class CompromisosController extends BaseController {
                 $data['filtros_count'][$name] = array_count_values($filters_id);
             }
 
-            $compromisos = Compromiso::whereIn('id', $ids)->with('institucionResposablePlan','usuario','mediosDeVerificacion','sectores');
+            $compromisos = Compromiso::whereIn('id', $ids)->with('hitos','institucionResposablePlan','usuario','mediosDeVerificacion','sectores');
             if($q)
                 $compromisos->orderByRaw('FIELD(id,'.implode(',',$ids).')');
             else
                 $compromisos->orderBy('id','desc');
 
-            $data['compromisos_chart']=DB::table('compromisos')->whereIn('id', $ids)->groupBy('avance')->select(DB::raw('count(*) as data, avance as label'))->get();
+            //$data['compromisos_chart']=DB::table('compromisos')->whereIn('id', $ids)->groupBy('avance')->select(DB::raw('count(*) as data, avance as label'))->get();
             $data['fuentes'] = Fuente::with('hijos', 'hijos.hijos')->whereNull('fuente_padre_id')->get();
             $data['instituciones'] = Institucion::with('hijos')->whereNull('institucion_padre_id')->get();
             $data['sectores'] = Sector::with('hijos.hijos')->whereNull('sector_padre_id')->get();
@@ -151,7 +151,6 @@ class CompromisosController extends BaseController {
             'institucion_responsable_plan' => 'required',
             'institucion_responsable_implementacion' => 'required',
             'usuario' => 'required',
-            'avance'=>'required|numeric',
             'url'=>'url',
             'presupuesto'=>'numeric'
         ));
@@ -167,7 +166,6 @@ class CompromisosController extends BaseController {
             $compromiso->descripcion = Input::get('descripcion','');
             $compromiso->objetivo = Input::get('objetivo','');
             $compromiso->publico=Input::get('publico');
-            $compromiso->avance=Input::get('avance');
             $compromiso->avance_descripcion=Input::get('avance_descripcion');
             $compromiso->plazo=Input::get('plazo');
             $compromiso->presupuesto=Input::get('presupuesto',null);
@@ -197,6 +195,8 @@ class CompromisosController extends BaseController {
             foreach($hitos as $h){
                 $new_hito=new Hito();
                 $new_hito->descripcion=$h['descripcion'];
+                $new_hito->ponderador=$h['ponderador']/100;
+                $new_hito->avance=$h['avance']/100;
                 $new_hito->fecha_inicio=\Carbon\Carbon::parse($h['fecha_inicio']);
                 $new_hito->fecha_termino=\Carbon\Carbon::parse($h['fecha_termino']);
                 $compromiso->hitos()->save($new_hito);
