@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Actor' => $baseDir . '/app/models/Actor.php',
+    'AddDepartamentoToCompromisoTable' => $baseDir . '/app/database/migrations/2014_06_19_143725_add_departamento_to_compromiso_table.php',
     'AddPonderadorToHitoTable' => $baseDir . '/app/database/migrations/2014_06_18_150437_add_ponderador_to_hito_table.php',
     'AuthController' => $baseDir . '/app/controllers/backend/AuthController.php',
     'BackendController' => $baseDir . '/app/controllers/backend/BackendController.php',

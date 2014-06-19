@@ -171,6 +171,7 @@ class CompromisosController extends BaseController {
             $compromiso->presupuesto=Input::get('presupuesto',null);
             $compromiso->institucionResposablePlan()->associate(Institucion::find(Input::get('institucion_responsable_plan')));
             $compromiso->institucionResposableImplementacion()->associate(Institucion::find(Input::get('institucion_responsable_implementacion')));
+            $compromiso->departamento=Input::get('departamento');
             $compromiso->fuente()->associate(Fuente::find(Input::get('fuente')));
             $compromiso->usuario()->associate(Usuario::find(Input::get('usuario')));
 

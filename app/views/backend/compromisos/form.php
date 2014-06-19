@@ -132,6 +132,16 @@
             </div>
             </div>
         </div>
+        <div class="row form-horizontal">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="departamento" class="col-sm-3 control-label">Departamento responsable</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" name="departamento" id="departamento" placeholder="Unidad/División/Departamento responsable" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row form-actores">
             <div class="col-sm-12">
