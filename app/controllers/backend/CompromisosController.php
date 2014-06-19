@@ -38,7 +38,7 @@ class CompromisosController extends BaseController {
             else
                 $compromisos->orderBy('id','desc');
 
-            //$data['compromisos_chart']=DB::table('compromisos')->whereIn('id', $ids)->groupBy('avance')->select(DB::raw('count(*) as data, avance as label'))->get();
+            $data['compromisos_chart']=Compromiso::dataForAvanceChart($ids);
             $data['fuentes'] = Fuente::with('hijos', 'hijos.hijos')->whereNull('fuente_padre_id')->get();
             $data['instituciones'] = Institucion::with('hijos')->whereNull('institucion_padre_id')->get();
             $data['sectores'] = Sector::with('hijos.hijos')->whereNull('sector_padre_id')->get();

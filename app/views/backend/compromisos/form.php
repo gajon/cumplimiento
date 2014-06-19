@@ -137,7 +137,7 @@
                 <div class="form-group">
                     <label for="departamento" class="col-sm-3 control-label">Departamento responsable</label>
                     <div class="col-sm-9">
-                        <input class="form-control" type="text" name="departamento" id="departamento" placeholder="Unidad/División/Departamento responsable" />
+                        <input class="form-control" type="text" name="departamento" id="departamento" value="<?=$compromiso->departamento?>" placeholder="Unidad/División/Departamento responsable" />
                     </div>
                 </div>
             </div>

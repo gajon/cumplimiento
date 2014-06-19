@@ -54,4 +54,31 @@ class Compromiso extends Eloquent{
         return $avance;
     }
 
+    public function getEstadoAvanceAttribute(){
+        if($this->avance==0){
+            return 'Sin comenzar';
+        }else if($this->avance > 0 && $this->avance < 0.25){
+            return 'Comenzando';
+        }else if($this->avance >= 0.25 && $this->avance < 0.75){
+            return 'En desarrollo';
+        }else if($this->avance >= 0.75 && $this->avance < 1){
+            return 'Finalizando';
+        }else{
+            return 'Completado';
+        }
+    }
+
+    public static function dataForAvanceChart($ids){
+        $compromisos=self::with('hitos')->whereIn('id', $ids)->get();
+
+
+        $data=array();
+        foreach($compromisos as $c){
+            $data[$c->estado_avance]['label']=$c->estado_avance;
+            $data[$c->estado_avance]['data']=5;
+        }
+
+        return array_values($data);
+    }
+
 } 
