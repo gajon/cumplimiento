@@ -242,8 +242,8 @@
                             <td><input class="form-control" type="text" value="<?=$h->descripcion?>" name="hitos[<?=$i?>][descripcion]" placeholder="Descripción del hito"/></td>
                             <td><input class="form-control" type="number" min="0" max="100" value="<?=$h->ponderador*100?>" name="hitos[<?=$i?>][ponderador]" placeholder="Ponderador del hito (Valor entre 0 y 100)"/></td>
                             <td><input class="form-control" type="number" min="0" max="100" value="<?=$h->avance*100?>" name="hitos[<?=$i?>][avance]" placeholder="Porcentaje de avance (Valor entre 0 y 100)"/></td>
-                            <td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" type="date" class="form-control" value="<?=$h->fecha_inicio->format('d-m-Y')?>" name="hitos[<?=$i?>][fecha_inicio]" placeholder="Fecha de inicio del hito" /></td>
-                            <td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" type="date" class="form-control" value="<?=$h->fecha_termino->format('d-m-Y')?>" name="hitos[<?=$i?>][fecha_termino]" placeholder="Fecha de término del hito" /></td>
+                            <td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" type="text" class="form-control" value="<?=$h->fecha_inicio->format('d-m-Y')?>" name="hitos[<?=$i?>][fecha_inicio]" placeholder="Fecha de inicio del hito" /></td>
+                            <td><input data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true" type="text" class="form-control" value="<?=$h->fecha_termino->format('d-m-Y')?>" name="hitos[<?=$i?>][fecha_termino]" placeholder="Fecha de término del hito" /></td>
                             <td>
                                 <button class="btn btn-danger" type="text"><span class="glyphicon glyphicon-remove"></span></button>
                             </td>
