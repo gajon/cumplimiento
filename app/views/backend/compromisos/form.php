@@ -185,7 +185,7 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label for="objetivo">Objetivo General</label>
-                    <textarea class="form-control tinymce" rows="6" placeholder="Descripción sobre el objetivo general del compromiso." id="objetivo" name="objetivo"><?=$compromiso->descripcion?></textarea>
+                    <textarea class="form-control tinymce" rows="6" placeholder="Descripción sobre el objetivo general del compromiso." id="objetivo" name="objetivo"><?=$compromiso->objetivo?></textarea>
                 </div>
             </div>
         </div>
